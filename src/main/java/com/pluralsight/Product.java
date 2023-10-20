@@ -6,7 +6,6 @@ public class Product {
 
     private String name;
     private double price;
-    private String department;
     private String id;
 
 //_________________________//
@@ -14,10 +13,9 @@ public class Product {
 //________________________//
 
 
-    public Product(String name, double price, String department, String id) {
+    public Product(String name, double price, String id) {
         this.name = name;
         this.price = price;
-        this.department = department;
         this.id = id;
     }
 
@@ -25,7 +23,6 @@ public class Product {
 //_________________________//
 //    Getters & Setters
 //________________________//
-
 
     public String getName() {
         return name;
@@ -43,14 +40,6 @@ public class Product {
         this.price = price;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
     public String getId() {
         return id;
     }
@@ -58,7 +47,6 @@ public class Product {
     public void setId(String id) {
         this.id = id;
     }
-
 
 
 //_________________________//
@@ -71,10 +59,7 @@ public class Product {
         return "Product{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
-                ", department='" + department + '\'' +
                 ", id='" + id + '\'' +
                 '}';
     }
-
-
 }

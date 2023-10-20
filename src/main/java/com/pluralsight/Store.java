@@ -1,8 +1,10 @@
+package com.pluralsight;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class Store {
 
@@ -58,6 +60,19 @@ public class Store {
         // price is a double value representing the price of the product, and
         // quantity is an integer representing the number of items available
         // in the inventory.
+        String line;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\\|");
+                String id = parts[0];
+                String name = parts[1];
+                double price = Double.parseDouble(parts[2]);
+                inventory.add (new Product(name, price, id));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner) {
@@ -66,6 +81,9 @@ public class Store {
         // prompt the user to enter the ID of the product they want to add to
         // their cart, and the quantity they want to add. The method should
         // add the selected product and quantity to the cart ArrayList.
+        for (Product x:inventory){
+            System.out.println(x);
+        }
     }
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
@@ -84,10 +102,10 @@ public class Store {
         // from their account if they confirm.
     }
 
-    public static Product findProductById(String id, ArrayList<Product> inventory) {
-        // This method should search the inventory ArrayList for a product with
-        // the specified ID, and return the corresponding Product object. If
-        // no product with the specified ID is found, the method should return
-        // null.
-    }
+//    public static Product findProductById(String id, ArrayList<Product> inventory) {
+//        // This method should search the inventory ArrayList for a product with
+//        // the specified ID, and return the corresponding Product object. If
+//        // no product with the specified ID is found, the method should return
+//        // null.
+//    }
 }
